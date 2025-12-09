@@ -1,0 +1,139 @@
+<!-- contact.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Contact — Rahul M N</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
+    .card-contact{padding:18px;border-radius:12px;background:#fff;box-shadow:0 6px 18px rgba(2,6,23,0.04)}
+    .info-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px dashed #f1f5f9}
+    .info-row:last-child{border-bottom:0}
+    .info-label{min-width:100px;font-weight:700}
+    .action-btn{display:inline-block;margin-right:8px;padding:8px 12px;border-radius:8px;text-decoration:none;border:0;cursor:pointer}
+    .action-primary{background:var(--accent);color:#fff}
+    .action-ghost{background:transparent;border:1px solid #e6eefc;color:var(--accent)}
+    .muted{color:var(--muted);margin-top:10px}
+    @media (max-width:920px){.contact-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner container">
+      <a class="brand" href="index.html">
+        <img class="logo" aria-hidden="true" src="assets/images/chandan.jpeg" alt="Rahul M N">
+        <div>
+          <div style="font-weight:700">Rahul M N</div>
+          <div class="small">Contact</div>
+        </div>
+      </a>
+      <button class="hamburger" aria-label="menu">☰</button>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="resume.html">Resume</a>
+        <a href="biodata.html">Bio-data</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:20px">
+    <h1>Contact</h1>
+
+    <div class="contact-grid" style="margin-top:14px">
+      <div class="card-contact">
+        <h3>Get in touch</h3>
+        <p class="muted">Prefer traditional contact? Call or email directly — I check messages regularly.</p>
+
+        <div class="info-row">
+          <div class="info-label" >Phone</div>
+          <div>
+            <div style="font-weight:700">+91 84312 61027</div>
+            <div class="muted">Reach me on WhatsApp / Call</div>
+            <div style="margin-top:8px">
+              <a class="action-btn action-primary" href="tel:+919902567047">Call</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label" >Email</div>
+          <div>
+            <div style="font-weight:700" style="margin-top:20px;">rrahul3214@gmail.com</div>
+            <div class="muted">For formal requests, send a message with subject and CV</div>
+            <div style="margin-top:8px">
+              <a class="action-btn action-primary" href="mailto:chandanchandumanjegowda@gmail.com?subject=Contact%20From%20Website">Email</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Location</div>
+          <div>
+            <div style="font-weight:700">Bangalore, Karnataka, India</div>
+            <div class="muted">Willing to relocate / remote work</div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          
+          <a class="action-btn action-ghost" href="index.html">Back to Home</a>
+        </div>
+
+        <p id="copyMsg" class="muted" style="margin-top:12px;display:none">Phone copied to clipboard ✓</p>
+      </div>
+
+      <aside class="card-contact">
+        <h3>Quick profile</h3>
+        <p style="margin:6px 0"><strong>Rahul M N</strong><br><span class="muted">Student • Web & Mobile Learner</span></p>
+        <hr style="border:none;border-top:1px solid #f1f5f9;margin:12px 0">
+        <h4 style="margin:8px 0">Availability</h4>
+        <p class="muted">Open to internships, part-time freelance work, and collaborations.</p>
+
+        <h4 style="margin-top:12px">Social</h4>
+        <p style="margin:6px 0">
+          <!-- replace # with actual links if you want -->
+          <a href="https://github.com/Chandanchandu55" class="action-btn action-ghost" style="display:inline-block;margin-bottom:6px">GitHub</a>
+          <a href="https://www.linkedin.com/in/chandan-g-m-8b2a52298" class="action-btn action-ghost" style="display:inline-block;margin-bottom:6px">LinkedIn</a>
+        </p>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    // copy phone to clipboard
+    document.getElementById('copyPhoneBtn').addEventListener('click', function(){
+      const phone = this.getAttribute('data-phone');
+      navigator.clipboard.writeText(phone).then(()=>{
+        const el = document.getElementById('copyMsg');
+        el.style.display = 'block';
+        setTimeout(()=> el.style.display = 'none', 2500);
+      }).catch(()=> alert('Copy failed — manually copy: ' + phone));
+    });
+
+    /* generate and download simple vCard
+    document.getElementById('downloadVcard').addEventListener('click', function(){
+      const vcard = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'FN:Chandan G M',
+        'TEL;TYPE=CELL:+919902567047',
+        'EMAIL:chandanchandumanjegowda@gmail.com',
+        'ADR:;;Bangalore;Karnataka;;India',
+        'END:VCARD'
+      ].join('\\n');
+      const blob = new Blob([vcard], {type: 'text/vcard'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Chandan_G_M.vcf';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });*/
+  </script>
+</body>
+</html>
