@@ -1,0 +1,37 @@
+
+/* styles.css - interactive portfolio */
+:root{--accent:#0b76ef;--muted:#6b7280;--bg:#fbfdff}
+*{box-sizing:border-box}body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:var(--bg);color:#111;line-height:1.5}
+.container{max-width:980px;margin:0 auto;padding:20px}
+.header{background:#fff;box-shadow:0 2px 8px rgba(12,20,40,0.05);position:sticky;top:0;z-index:40}
+.header-inner{display:flex;align-items:center;gap:16px;padding:10px 20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#5bc0eb);display:inline-block;flex-shrink:0}
+.nav{margin-left:auto;display:flex;gap:8px;align-items:center}
+.nav a{padding:8px 12px;border-radius:8px;color:var(--muted);text-decoration:none}
+.nav a.active, .nav a:hover{background:#f1f7ff;color:var(--accent);font-weight:600}
+.hamburger{display:none;border:none;background:none;padding:8px;border-radius:8px;cursor:pointer}
+.hero{padding:36px 0 12px}
+.hero h1{margin:0 0 8px;font-size:28px}
+.card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(12,20,40,0.04);margin-top:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+footer{padding:28px 0;color:var(--muted);text-align:center}
+.btn{background:var(--accent);color:#fff;padding:8px 14px;border-radius:10px;text-decoration:none;border:none;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid #e6eefc;color:var(--accent)}
+
+/* resume details */
+.resume-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.small{font-size:0.9rem;color:var(--muted)}
+
+/* biodata accordion */
+.accordion{margin-top:12px;border-radius:8px;overflow:hidden}
+.accordion button{width:100%;text-align:left;padding:12px;border:none;background:#fff;border-bottom:1px solid #f1f5f9;cursor:pointer;font-weight:600}
+.accordion .panel{padding:12px;background:#fff;border-bottom:1px solid #f1f5f9;display:none}
+
+/* responsive */
+@media (max-width:780px){
+  .nav{display:none;position:absolute;right:16px;top:64px;background:#fff;border-radius:8px;padding:12px;flex-direction:column;box-shadow:0 10px 30px rgba(2,6,23,0.08)}
+  .nav.show{display:flex}
+  .hamburger{display:block}
+  .header-inner{position:relative}
+}
